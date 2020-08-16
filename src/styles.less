@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+/* The hero image */
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+}
+
+.card{
+    border-radius: 0px;
+    border:0;
+}
+
+strong{
+    font-weight: 700;
+}
+
+.hero-image {
+    
+
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: url("assets/images/hero.jpg");
+
+    /* Set a specific height */
+    height: 1000px;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    position           : relative;
+
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    font-size  : 18px;
+    margin-top : 10px;
+    position  : absolute;
+    top       : 50%;
+    left      : 30%;
+    transform : translate(-50%, -50%);
+    color     : white;
+}
+
+
+nav a{
+    color: #fff;
+    text-decoration: none;
+    padding: 7px 25px;
+    display: inline-block;
+}
+
+.slick-prev:before {
+    color: #fd9a10 !important;
+}
+.slick-next:before {
+    color: #fd9a10 !important;
+}
+
+/*
+font-family: 'Montserrat', sans-serif;
+font-family: 'Permanent Marker', cursive;
+*/
