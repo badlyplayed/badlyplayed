@@ -1,11 +1,55 @@
 <div class="card card-rodape" id="targetConte">
     <div class="row">
         <div class="col-4">
-            <img class="image-rodape" width="140" height="40" src="/assets/images/logo-transparente.png">        
+            <img class="image-rodape" (click)="openModal()" width="140" height="40"
+                src="/assets/images/logo-transparente.png">
         </div>
         <div class="col-8">
-            <p class="rodape-text">Copyright @ #BadlyPlayed 2020 - Todos os direitos reservados.</p>  
+            <p class="rodape-text">Copyright @ #BadlyPlayed 2020 - Todos os direitos reservados.</p>
         </div>
     </div>
-</div>
 
+    <!-- <ng-template #loginModal let-modal>
+        <div class="modal-header">
+            <img src="/assets/images/bpadminlogo.png" width="120" height="50">
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="panel">
+                <p>As credenciais da sua sessão estão expiradas. Por favor digite seus dados abaixo para armazená-los novamente.</p>
+            </div>
+            <form id="Login">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" placeholder="Usuário">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Senha">
+                </div>
+                <button type="submit" class="btn btn-success">Obter minhas credenciais</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fechar</button>
+        </div>
+    </ng-template>
+
+    <ng-template #administrativeModal let-modal>
+        <div class="modal-header">
+            <img src="/assets/images/bpadminlogo.png" width="120" height="50">
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="panel">
+                <p>Seus dados privados aqui.</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fechar</button>
+        </div>
+    </ng-template> -->
+
+</div>

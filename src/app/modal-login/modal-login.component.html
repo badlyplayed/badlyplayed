@@ -1,0 +1,25 @@
+<div>
+    <div class="modal-header">
+        <img src="/assets/images/bpadminlogo.png" width="120" height="50">
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="panel">
+            <p>As credenciais da sua sessão estão expiradas. Por favor digite seus dados abaixo para armazená-los novamente.</p>
+        </div>
+        <form id="Login">
+            <div class="form-group">
+                <input [(ngModel)]='username' type="text" class="form-control" name="username" placeholder="Usuário">
+            </div>
+            <div class="form-group">
+                <input [(ngModel)]='password' type="password" class="form-control" name="password" placeholder="Senha">
+            </div>
+            <button type="submit" (click)="doLogin()" class="btn btn-success">Obter minhas credenciais</button>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button (click)="passBack()" type="submit" class="btn btn-warning w-100">Cancelar</button>
+    </div>
+</div>

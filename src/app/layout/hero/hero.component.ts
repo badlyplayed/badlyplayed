@@ -13,8 +13,6 @@ export class HeroComponent implements OnInit {
   constructor(private recordeService:RecordeService) { }
 
   ngOnInit(): void {
-    //console.log(this.recordeService.getHeroes());
-    //this.data = this.recordeService.getHeroes();
     this.recordeService.getHeroes()
     .subscribe((data) => {
       this.recorde = data;
