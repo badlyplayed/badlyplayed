@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ParametrosService } from '../services/parametros.service'
 
 @Component({
   selector: 'app-contato',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  contatos:any;
+
+  constructor(private parametrosService:ParametrosService) { }
 
   ngOnInit(): void {
+    this.parametrosService.getContatos().subscribe((data)=>{
+      this.contatos = data;
+    });
   }
 
 }

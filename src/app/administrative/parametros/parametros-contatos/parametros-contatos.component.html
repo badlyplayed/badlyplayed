@@ -1,0 +1,35 @@
+<form>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Instagram</label>
+                <input type="text" class="form-control" [(ngModel)]='contatos.instagram' name="instagram">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Facebook</label>
+            <input type="text" class="form-control" [(ngModel)]='contatos.facebook' name="facebook">
+        </div>
+        <div class="col-4">
+            <label>E-mail</label>
+            <input type="email" class="form-control" [(ngModel)]='contatos.email' name="email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label>Twitter</label>
+                <input type="text" class="form-control"  [(ngModel)]='contatos.tweeter'name="tweeter">
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Youtube</label>
+            <input type="text" class="form-control" [(ngModel)]='contatos.youtube' name="youtube">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <button type="submit" (click)="salvarContatos()" class="btn btn-success">Salvar</button>
+        </div>
+    </div>
+</form>

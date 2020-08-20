@@ -19,4 +19,5 @@ export class ConfigService {
     }
     return this.apiURLProduction;
   }
+
 }
