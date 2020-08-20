@@ -23,6 +23,7 @@ import { ModalAdministrativeComponent } from './modal-administrative/modal-admin
 import { HistoriasComponent } from './administrative/historias/historias.component';
 import { ParametrosComponent } from './administrative/parametros/parametros.component';
 import { ParametrosContatosComponent } from './administrative/parametros/parametros-contatos/parametros-contatos.component';
+import { ParametrosUsuariosComponent } from './administrative/parametros/parametros-usuarios/parametros-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ParametrosContatosComponent } from './administrative/parametros/paramet
     ModalAdministrativeComponent,
     HistoriasComponent,
     ParametrosComponent,
-    ParametrosContatosComponent
+    ParametrosContatosComponent,
+    ParametrosUsuariosComponent
   ],
   imports: [
     BrowserModule,

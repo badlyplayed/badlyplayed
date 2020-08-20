@@ -88,4 +88,28 @@ export class AuthService {
     }
   }
 
+  getUsuarios(){
+    let headerData = this.getHeaderWithToken();
+    if (headerData != null){
+      return this.http.get( this.configService.getApiBaseUrl() + '/api/users/',{ headers: headerData });
+    }
+  }
+
+  insertUsuario(usuario){
+    let headerData = this.getHeaderWithToken();
+    if (headerData != null){
+      return this.http.post( this.configService.getApiBaseUrl() + '/api/users/',usuario,{ headers: headerData });
+    }
+  }
+
+  removerUSuario(id){
+    let headerData = this.getHeaderWithToken();
+    if (headerData != null){
+      if(id){
+        var user = {'id':id};
+        return this.http.post( this.configService.getApiBaseUrl() + '/api/users/remove',user,{ headers: headerData });
+      }
+    }
+  }
+
 }
