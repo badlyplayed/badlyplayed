@@ -1,0 +1,37 @@
+<div>
+    <div class="modal-header">
+        <img src="/assets/images/bpadminlogo.png" width="120" height="50">
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+            <li [ngbNavItem]="1">
+              <a ngbNavLink>Histórias</a>
+              <ng-template ngbNavContent>
+                <app-historias></app-historias>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <a ngbNavLink>Parâmetros</a>
+              <ng-template ngbNavContent>
+                <app-parametros></app-parametros>
+              </ng-template>
+            </li>
+          </ul>
+          
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+          
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+          <div class="col-6">
+            <button (click)="passBack()" type="submit" class="btn btn-sm btn-primary">Voltar</button>
+          </div>
+          <div class="col-6">
+            <button (click)="logout()" type="submit" class="btn btn-sm btn-danger">Sair</button>
+          </div>  
+        </div>     
+    </div>
+</div>

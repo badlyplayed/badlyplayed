@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ConfigModule } from 'ngx-envconfig';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,13 @@ import { ManifestoComponent } from './manifesto/manifesto.component';
 import { ContatoComponent } from './contato/contato.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { ModalLoginComponent } from './modal-login/modal-login.component';
+import { ModalAdministrativeComponent } from './modal-administrative/modal-administrative.component';
+import { HistoriasComponent } from './administrative/historias/historias.component';
+import { ParametrosComponent } from './administrative/parametros/parametros.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,15 +34,22 @@ import { RodapeComponent } from './rodape/rodape.component';
     ContarHistoriaComponent,
     ManifestoComponent,
     ContatoComponent,
-    RodapeComponent
+    RodapeComponent,
+    ModalLoginComponent,
+    ModalAdministrativeComponent,
+    HistoriasComponent,
+    ParametrosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    FormsModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ModalLoginComponent,ModalAdministrativeComponent]
 })
 export class AppModule { }
