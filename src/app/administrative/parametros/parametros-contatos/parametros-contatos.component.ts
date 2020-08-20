@@ -8,7 +8,7 @@ import { ParametrosService } from '../../../services/parametros.service'
 })
 export class ParametrosContatosComponent implements OnInit {
 
-  contatos:any;
+  contatos:any = {};
 
   constructor(private parametrosService:ParametrosService) { }
 
