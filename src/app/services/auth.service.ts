@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from './config.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +66,26 @@ export class AuthService {
 
   doLogout(){
     localStorage.removeItem(this.configService.tokenCookieName);
+  }
+
+  getStoredToken(){
+    let authData = JSON.parse(localStorage.getItem(this.configService.tokenCookieName));
+    return authData;
+  }
+
+  getHeaderWithToken():HttpHeaders{
+    if( this.hasValidAuthentication() ){
+
+      let authData = JSON.parse(localStorage.getItem(this.configService.tokenCookieName));
+      if( authData['accessToken'] != null ){
+        let header = new HttpHeaders();
+        header = header.append("Content-Type","application/json");
+        header = header.append("x-access-token",authData['accessToken']);
+        return header;
+      }
+    }else{
+      return null;
+    }
   }
 
 }
