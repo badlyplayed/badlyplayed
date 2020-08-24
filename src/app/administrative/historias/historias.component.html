@@ -1,1 +1,58 @@
-<p>historias works!</p>
+<div class="content">
+    <div class="row content">
+        <i class="fa fa-comment fa-2x" style="margin-right:10px"></i>
+        <h3>Histórias</h3>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Print</th>
+                        <th scope="col">Verificado</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Gênero</th>
+                        <th scope="col">Jogo</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let historia of historias">
+                        <td *ngIf="historia.printscreen">
+                            <img src="{{ historia.printscreen }}" width="64" height="64">
+                        </td>
+                        <td *ngIf="!historia.printscreen">
+                            
+                        </td>
+                        
+                        <td *ngIf="historia.verificado">
+                            <i class="fa fa-check-square verificado"></i>
+                            <small class="verificado"> Verificado</small>
+                        </td>
+                        <td *ngIf="!historia.verificado">
+                            <i class="fa fa-pencil-square pendente"></i>
+                            <small> Pendente</small>
+                        </td>                       
+                        <td>{{ historia.nome }}</td>
+                        <td>{{ historia.genero }}</td>
+                        <td>{{ historia.jogo }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="button" (click)="openModal(historia._id)" class="btn btn-sm btn btn-outline-primary">Detalhes</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-sm btn btn-outline-danger">Remover</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-sm btn btn-outline-dark" disabled>Banir IP</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

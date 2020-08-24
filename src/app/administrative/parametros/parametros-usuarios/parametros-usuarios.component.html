@@ -25,7 +25,7 @@
 </div>
 <div class="row">
     <div class="col-3">
-        <button type="button" (click)="adicionarUsuario()" class="btn btn-sm btn-success">Adicionar Usuário</button>
+        <button type="button" (click)="adicionarUsuario()" class="btn btn-sm btn-success"><i class="fa fa-plus" style="margin-right: 4px;"></i>Adicionar Usuário</button>
     </div>
 </div>
 <br>
@@ -45,7 +45,7 @@
                     <td><strong>{{ usuario?.username }}</strong></td>
                     <td>{{ usuario?.email }}</td>
                     <td><strong>{{ usuario?.roles[0]?.name }}</strong></td>
-                    <td><button type="button" (click)="removeUsuario(usuario._id)" class="btn btn-sm btn-danger">Remover</button></td>
+                    <td><button type="button" (click)="removeUsuario(usuario._id)" class="btn btn-sm btn-danger"><i class="fa fa-times" style="margin-right: 4px;"></i>Remover</button></td>
                 </tr>
             </tbody>
         </table>

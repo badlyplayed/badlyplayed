@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-login',
@@ -14,7 +15,8 @@ export class ModalLoginComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private authService : AuthService
+    private authService : AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class ModalLoginComponent implements OnInit {
         .doLogin(this.username,this.password).subscribe((data)=>{
           // TODO : Show login failed message
           this.activeModal.close();
+          this.router.navigate(['/administrative']);
         });
     }
   }

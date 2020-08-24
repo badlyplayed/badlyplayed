@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../services/auth.service';
+import { RouterModule, Router } from '@angular/router';
 
 import { ModalLoginComponent } from '../modal-login/modal-login.component'
 import { ModalAdministrativeComponent } from '../modal-administrative/modal-administrative.component';
@@ -14,7 +15,8 @@ export class RodapeComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private authService : AuthService
+    private authService : AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,8 @@ export class RodapeComponent implements OnInit {
     if( !this.authService.hasValidAuthentication() ){
       this.modalService.open(ModalLoginComponent);
     }else{
-      this.modalService.open(ModalAdministrativeComponent, { size: 'xl' });
+      // this.modalService.open(ModalAdministrativeComponent, { size: 'xl' });
+      this.router.navigate(['/administrative']);
     }
 
   }

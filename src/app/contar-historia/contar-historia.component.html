@@ -18,27 +18,26 @@
                         <div class="col-5">
                             <div class="form-group">
                                 <label class="form-label" for="exampleInputEmail1">nome</label>
-                                <input class="form-control form-input" type="text" id="formName" placeholder="Julia">
+                                <input [(ngModel)]='historia.nome' name="historia" class="form-control form-input"
+                                    type="text" id="formName" placeholder="Julia">
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="form-group">
                                 <label class="form-label" for="exampleFormControlSelect1">idade*</label>
-                                <select class="form-control form-input" id="formIdade">
-                                    <option>17</option>
-                                    <option>18</option>
-                                    <option selected>19</option>
-                                    <option>20</option>
-                                    <option>21</option>
+                                <select [(ngModel)]='historia.idade' name="idade" [style.border]="idadeValidation"
+                                    class="form-control form-input" id="formIdade">
+                                    <option *ngFor="let idade of idades" value="{{idade}}">{{idade}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label class="form-label" for="exampleFormControlSelect1">gênero*</label>
-                                <select class="form-control form-input" id="formGenero">
-                                    <option selected>feminino</option>
-                                    <option>masculino</option>
+                                <select [(ngModel)]='historia.genero' [style.border]="generoValidation" name="genero"
+                                    class="form-control form-input" id="formGenero">
+                                    <option selected value="feminino">feminino</option>
+                                    <option value="masculino">masculino</option>
                                 </select>
                             </div>
                         </div>
@@ -47,27 +46,32 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="form-label" for="exampleFormControlSelect1">jogo*</label>
-                                <input class="form-control form-input" type="text" id="formName" placeholder="Nome do jogo">
+                                <input [(ngModel)]='historia.jogo' [style.border]="jogoValidation" name="jogo"
+                                    class="form-control form-input" type="text" id="formName"
+                                    placeholder="Nome do jogo">
                             </div>
                         </div>
                     </div>
                     <div class="row form-line">
                         <div class="col-4">
                             <label class="form-label" for="exampleFormControlSelect1">data*</label>
-                            <select class="form-control form-input" id="formData">
-                                <option selected>10</option>
+                            <select [(ngModel)]='historia.dataDia' [style.border]="dataDiaValidation" name="genero"
+                                class="form-control form-input" id="formData">
+                                <option *ngFor="let dia of dias" value="{{dia}}">{{dia}}</option>
                             </select>
                         </div>
                         <div class="col-4">
                             <label class="form-label" for="exampleFormControlSelect1"> </label>
-                            <select class="form-control form-input" id="formData">
-                                <option selected>mar</option>
+                            <select [(ngModel)]='historia.dataMes' [style.border]="dataMesValidation" name="genero"
+                                class="form-control form-input" id="formData">
+                                <option *ngFor="let mes of meses" value="{{mes}}">{{mes}}</option>
                             </select>
                         </div>
                         <div class="col-4">
                             <label class="form-label" for="exampleFormControlSelect1"> </label>
-                            <select class="form-control form-input" id="formData">
-                                <option selected>2020</option>
+                            <select [(ngModel)]='historia.dataAno' [style.border]="dataAnoValidation" name="genero"
+                                class="form-control form-input" id="formData">
+                                <option *ngFor="let ano of anos" value="{{ano}}">{{ano}}</option>
                             </select>
                         </div>
                     </div>
@@ -75,7 +79,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="form-label" for="exampleFormControlFile1">printscreen</label>
-                                <input type="file" class="form-control-file" id="formPrint">
+                                <input type="file" (change)="handleUpload($event)" class="form-control-file" id="formPrint" #inputFile>
                             </div>
                         </div>
                     </div>
@@ -83,10 +87,9 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="form-label" for="exampleFormControlSelect1">país*</label>
-                                <select class="form-control form-input" id="formPais">
-                                    <option selected>Brazil</option>
-                                    <option>Estados Unidos</option>
-                                    <option>Alemanha</option>
+                                <select [(ngModel)]='historia.pais' [style.border]="paisValidation" name="pais"
+                                    class="form-control form-input" id="formPais">
+                                    <option *ngFor="let pais of paises" value="{{pais}}">{{pais}}</option>
                                 </select>
                             </div>
                         </div>
@@ -96,7 +99,9 @@
                             <div class="form-group">
                                 <label class="form-label" for="exampleFormControlTextarea1">detalhes sobre o
                                     caso*</label>
-                                <textarea class="form-control input-text" id="formDetalhes" rows="3"></textarea>
+                                <textarea [(ngModel)]='historia.detalhes' [style.border]="detalhesValidation"
+                                    name="detalhes" class="form-control input-text" id="formDetalhes"
+                                    rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -107,7 +112,8 @@
                         <div class="col-3">
                             <div class="radio-background">
                                 <label class="container">sim
-                                    <input type="radio" checked="checked" name="foiPunidoRadio">
+                                    <input type="radio" value="sim" checked="checked"
+                                        (change)="onItemChange($event.target.value)" name="foiPunidoRadio">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -115,7 +121,8 @@
                         <div class="col-3">
                             <div class="radio-background">
                                 <label class="container">não
-                                    <input type="radio" name="foiPunidoRadio">
+                                    <input name="foiPunidoNao" value="nao" type="radio"
+                                        (change)="onItemChange($event.target.value)" name="foiPunidoRadio">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -123,7 +130,8 @@
                         <div class="col-4">
                             <div class="radio-background">
                                 <label class="container">não sei
-                                    <input type="radio" name="foiPunidoRadio">
+                                    <input type="radio" value="naosei" (change)="onItemChange($event.target.value)"
+                                        name="foiPunidoRadio">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -131,12 +139,29 @@
                     </div>
                     <div class="row form-line">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-envie">envie sua história</button>
+                            <button type="submit" (click)="contarHistoria()" class="btn btn-envie">envie sua
+                                história</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <p *ngFor="let alert of alerts">
+                                <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="imageData" >
+                        <div class="col-12">
+                            <div class="imagePreviewDiv">
+                                <img class="imagePreview" [src]="imageData" width="200" height="200">
+                                <button type="submit" (click)="removerPrint()" class="btn btn-block">Remover</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-
     </div>
 </div>

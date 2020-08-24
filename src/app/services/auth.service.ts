@@ -88,6 +88,18 @@ export class AuthService {
     }
   }
 
+  isStoredTokenAdmin():boolean{
+    
+    let authData = this.getStoredToken();
+    let authDataRole = authData['roles'];
+    if( authDataRole == null ){
+      return false;
+    }
+
+    return authDataRole.includes('ROLE_ADMIN');
+
+  }
+
   getUsuarios(){
     let headerData = this.getHeaderWithToken();
     if (headerData != null){
