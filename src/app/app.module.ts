@@ -24,6 +24,10 @@ import { HistoriasComponent } from './administrative/historias/historias.compone
 import { ParametrosComponent } from './administrative/parametros/parametros.component';
 import { ParametrosContatosComponent } from './administrative/parametros/parametros-contatos/parametros-contatos.component';
 import { ParametrosUsuariosComponent } from './administrative/parametros/parametros-usuarios/parametros-usuarios.component';
+import { AdministrativeComponent } from './administrative/administrative.component';
+import { AdminHeaderComponent } from './administrative/admin-header/admin-header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HistoriasDetalhesComponent } from './administrative/historias-detalhes/historias-detalhes.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import { ParametrosUsuariosComponent } from './administrative/parametros/paramet
     HistoriasComponent,
     ParametrosComponent,
     ParametrosContatosComponent,
-    ParametrosUsuariosComponent
+    ParametrosUsuariosComponent,
+    AdministrativeComponent,
+    AdminHeaderComponent,
+    HistoriasDetalhesComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,8 @@ import { ParametrosUsuariosComponent } from './administrative/parametros/paramet
     HttpClientModule,
     SlickCarouselModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

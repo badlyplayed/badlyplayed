@@ -1,0 +1,20 @@
+<app-admin-header></app-admin-header>
+
+<div class="content">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+            <a ngbNavLink>Histórias</a>
+            <ng-template ngbNavContent>
+                <app-historias></app-historias>
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2" [disabled]="!isAdmin">
+            <a ngbNavLink>Parâmetros</a>
+            <ng-template ngbNavContent>
+                <app-parametros></app-parametros>
+            </ng-template>
+        </li>
+    </ul>
+</div>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

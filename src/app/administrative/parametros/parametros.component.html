@@ -1,12 +1,23 @@
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-    <ngb-panel title="Contatos">
-        <ng-template ngbPanelContent>
+<div class="content">
+    <div class="row">
+        <div class="col-12">
+            <h2><i class="fa fa-cog" style="margin-right:10px"></i>Parâmetros</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <app-parametros-contatos></app-parametros-contatos>
-        </ng-template>
-    </ngb-panel>
-    <ngb-panel title="Usuários">
-        <ng-template ngbPanelContent>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <h2><i class="fa fa-user" style="margin-right:10px"></i>Usuários</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
             <app-parametros-usuarios></app-parametros-usuarios>
-        </ng-template>
-    </ngb-panel>
-</ngb-accordion>
+        </div>
+    </div>
+</div>

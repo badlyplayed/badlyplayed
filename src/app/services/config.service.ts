@@ -6,8 +6,8 @@ import { isDevMode } from '@angular/core';
 })
 export class ConfigService {
 
-  apiURLDevelopment:string = "http://localhost:8080";
-  apiURLProduction:string = "";
+  apiURLDevelopment:string = "http://localhost:3000";
+  apiURLAWS:string = "http://ec2-3-128-160-44.us-east-2.compute.amazonaws.com:8080";
 
   tokenCookieName = "BadlyPlayed_AUTH";
 
@@ -17,7 +17,7 @@ export class ConfigService {
     if( isDevMode() ){
       return this.apiURLDevelopment;
     }
-    return this.apiURLProduction;
+    return this.apiURLAWS;
   }
 
 }

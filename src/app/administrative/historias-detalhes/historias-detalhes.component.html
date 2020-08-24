@@ -1,0 +1,78 @@
+<div>
+    <div class="modal-header">
+        <img src="/assets/images/bpadminlogo.png" width="120" height="50">
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-4" *ngIf="historia.printscreen">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="{{ historia.printscreen }}" width="300">
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 information"> 
+                <div class="row">
+                    <div class="col-3">
+                        <span class="label">Nome</span>
+                        <span class="data">{{ historia.nome }}</span>
+                    </div>
+                    <div class="col-3">
+                        <span class="label">Idade</span>
+                        <span class="data">{{ historia.idade }}</span>
+                    </div>
+                    <div class="col-3">
+                        <span class="label">Gênero</span>
+                        <span class="data">{{ historia.genero }}</span>
+                    </div>
+                    <div class="col-3">
+                        <span class="label">Pais</span>
+                        <span class="data">{{ historia.pais }}</span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <span class="label">Jogo</span>
+                        <span class="data">{{ historia.jogo }}</span>
+                    </div>
+                    <div class="col-6">
+                        <span class="label">Data do Evento</span>
+                        <span class="data">{{ historia.dataDia }} / {{ historia.dataMes }} / {{ historia.dataAno }}</span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12">
+                        <span class="label">Detalhes</span>
+                        <span class="data">{{ historia.detalhes }}</span>
+                    </div>
+                </div>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <span class="label">Data Sistema</span>
+                        <span class="data">{{ historia.data }}</span>
+                    </div>
+                    <div class="col-3">
+                        <span *ngIf="historia.foiPunido == 'nao'" class="data"><span class="badgeDanger">Não Punido</span></span>
+                        <span *ngIf="historia.foiPunido == 'naoSei'" class="data"><span class="badgeDefault">Não Punido</span></span>
+                        <span *ngIf="historia.foiPunido == 'sim'" class="data"><span class="badgeSuccess">Não Punido</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button (click)="passBack()" type="submit" class="btn btn-warning w-30"><i class="fa fa-chevron-left" style="margin-right: 4px;"></i>Cancelar</button>
+        <button (click)="passBack()" type="submit" class="btn btn-danger w-30"><i class="fa fa-trash" style="margin-right: 4px;"></i>Apagar História</button>
+        <button (click)="passBack()" type="submit" class="btn btn-danger w-30"><i class="fa fa-trash" style="margin-right: 4px;"></i>Apagar Media</button>
+        <button (click)="passBack()" type="submit" class="btn btn-warning w-30"><i class="fa fa-download" style="margin-right: 4px;"></i>Baixar Media</button>
+        <button (click)="passBack()" type="submit" class="btn btn-danger w-30"><i class="fa fa-check" style="margin-right: 4px;"></i>Não Verificado</button>
+        <button (click)="passBack()" type="submit" class="btn btn-success w-30"><i class="fa fa-check" style="margin-right: 4px;"></i>Verificado</button>
+    </div>
+</div>
