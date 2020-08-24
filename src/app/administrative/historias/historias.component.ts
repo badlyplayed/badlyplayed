@@ -32,4 +32,10 @@ export class HistoriasComponent implements OnInit {
     });    
   }
 
+  removerHistoria(id:string){
+    this.historiaService.deleteHistoria(id).subscribe((data)=>{
+      this.ngOnInit();
+    });
+  }
+
 }

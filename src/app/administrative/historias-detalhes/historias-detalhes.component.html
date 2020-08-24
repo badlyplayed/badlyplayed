@@ -59,9 +59,21 @@
                         <span class="data">{{ historia.data }}</span>
                     </div>
                     <div class="col-3">
+                        <span class="label">Punido</span>
                         <span *ngIf="historia.foiPunido == 'nao'" class="data"><span class="badgeDanger">Não Punido</span></span>
                         <span *ngIf="historia.foiPunido == 'naoSei'" class="data"><span class="badgeDefault">Não Punido</span></span>
                         <span *ngIf="historia.foiPunido == 'sim'" class="data"><span class="badgeSuccess">Não Punido</span></span>
+                    </div>
+                    <div class="col-3">
+                        <span class="label">Situação</span>
+                        <td *ngIf="historia.verificado">
+                            <i class="fa fa-check-square verificado"></i>
+                            <small> Verificado</small>
+                        </td>
+                        <td *ngIf="!historia.verificado">
+                            <i class="fa fa-pencil-square pendente"></i>
+                            <small> Pendente</small>
+                        </td>  
                     </div>
                 </div>
             </div>
@@ -69,10 +81,10 @@
     </div>
     <div class="modal-footer">
         <button (click)="passBack()" type="submit" class="btn btn-warning w-30"><i class="fa fa-chevron-left" style="margin-right: 4px;"></i>Cancelar</button>
-        <button (click)="passBack()" type="submit" class="btn btn-danger w-30"><i class="fa fa-trash" style="margin-right: 4px;"></i>Apagar História</button>
-        <button (click)="passBack()" type="submit" class="btn btn-danger w-30"><i class="fa fa-trash" style="margin-right: 4px;"></i>Apagar Media</button>
-        <button (click)="passBack()" type="submit" class="btn btn-warning w-30"><i class="fa fa-download" style="margin-right: 4px;"></i>Baixar Media</button>
-        <button (click)="passBack()" type="submit" class="btn btn-danger w-30"><i class="fa fa-check" style="margin-right: 4px;"></i>Não Verificado</button>
-        <button (click)="passBack()" type="submit" class="btn btn-success w-30"><i class="fa fa-check" style="margin-right: 4px;"></i>Verificado</button>
+        <button (click)="apagarHistoria()" type="submit" class="btn btn-danger w-30"><i class="fa fa-trash" style="margin-right: 4px;"></i>Apagar História</button>
+        <button (click)="apagarMedia()" type="submit" class="btn btn-danger w-30"><i class="fa fa-trash" style="margin-right: 4px;"></i>Apagar Media</button>
+        <button (click)="baixarMedia()" type="submit" class="btn btn-warning w-30" disabled><i class="fa fa-download" style="margin-right: 4px;"></i>Baixar Media</button>
+        <button (click)="marcarNaoVerificado()" type="submit" class="btn btn-danger w-30"><i class="fa fa-check" style="margin-right: 4px;"></i>Não Verificado</button>
+        <button (click)="marcarVerificado()" type="submit" class="btn btn-success w-30"><i class="fa fa-check" style="margin-right: 4px;"></i>Verificado</button>
     </div>
 </div>

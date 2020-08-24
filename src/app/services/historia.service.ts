@@ -33,11 +33,20 @@ export class HistoriaService {
   }
 
   updateHistoria(historia){
-
+    let headerData = this.authService.getHeaderWithToken();
+    if (headerData != null) {
+      return this.http.post( this.configService.getApiBaseUrl() + '/api/historias/atualizar',
+          historia, { headers: headerData });;
+    }
   }
 
   deleteHistoria(id){
-    
+    let headerData = this.authService.getHeaderWithToken();
+    if (headerData != null) {
+      let idBody = {"_id":id};
+      return this.http.post( this.configService.getApiBaseUrl() + '/api/historias/apagar',
+        idBody, { headers: headerData });
+    }
   }
 
 }
